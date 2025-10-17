@@ -1,0 +1,38 @@
+/* Dark forest theme + transparent circular controls */
+:root{
+  --forest-1:#072b16;
+  --forest-2:#0b6623;
+  --muted:#a7c3ad;
+}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:#07110a;color:#e6f4ea}
+#map{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1}
+
+/* Sidebar */
+.sidebar{position:fixed;left:18px;top:18px;width:340px;height:calc(100% - 36px);background:linear-gradient(180deg,var(--forest-1),var(--forest-2));padding:18px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.6);z-index:1100;overflow:auto;transition:transform .28s ease,opacity .2s}
+.sidebar.hidden{transform:translateX(-380px);opacity:0}
+.sidebar .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,#0b6623,#2e8b57);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:8px}
+.sidebar h3{margin:0 0 8px 0;color:var(--muted)}
+
+/* controls */
+.controls .btn{width:100%;text-align:left}
+.save-area input, .save-area textarea{background:rgba(255,255,255,0.04);border:none;color:#e6f4ea;padding:8px;border-radius:8px}
+
+/* features list */
+.features-list{margin-top:8px}
+.feature-item{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;margin-bottom:8px}
+
+/* circular toggle (always visible) */
+.circle-toggle{position:fixed;left:18px;top:18px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.06);border:none;color:#fff;display:flex;align-items:center;justify-content:center;z-index:1200;backdrop-filter: blur(4px);box-shadow:0 6px 18px rgba(0,0,0,0.4);cursor:pointer}
+.circle-toggle.small{top:76px;width:44px;height:44px;font-size:18px}
+
+/* arrow icon */
+.arrow{display:inline-block;width:14px;height:14px;border-top:2px solid #fff;border-right:2px solid #fff;transform:rotate(225deg);transition:transform .2s}
+.arrow.left{transform:rotate(45deg)} /* points left when sidebar open */
+.arrow.right{transform:rotate(-135deg)} /* points right when sidebar hidden */
+
+/* responsive */
+@media(max-width:900px){
+  .sidebar{width:280px;left:12px;top:12px;height:calc(100% - 24px)}
+  .circle-toggle{left:12px;top:12px}
+  .circle-toggle.small{top:68px;left:12px}
+}
